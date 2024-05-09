@@ -62,10 +62,10 @@ Subsequently, employ [Open-Instruct](https://github.com/allenai/open-instruct) t
 ## 📚 Citation
 If you find this work useful, please consider citing our paper:
 ```
-@inproceedings{zhong2023seeking,
+@article{zhong2023seeking,
   title={Seeking Neural Nuggets: Knowledge Transfer in Large Language Models from a Parametric Perspective},
   author={Zhong, Ming and An, Chenxin and Chen, Weizhu and Han, Jiawei and He, Pengcheng},
-  booktitle={The Twelfth International Conference on Learning Representations},
+  journal={arXiv preprint arXiv:2310.11451},
   year={2023}
 }
 ```

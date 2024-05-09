@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parametric Knowledge Transfer</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/tangram.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Seeking Neural Nuggets: Knowledge Transfer in LLMs from a Parametric Perspective (ICLR 2024)</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://maszhongming.github.io">Ming Zhong</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?user=fY69CxIAAAAJ&hl=en">Chenxin An</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.microsoft.com/en-us/research/people/wzchen/">Weizhu Chen</a><sup>3</sup>,
+            <span class="author-block">
+              <a href="https://hanj.cs.illinois.edu">Jiawei Han</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=TS1RoxAAAAAJ&hl=en">Pengcheng He</a><sup>3</sup>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign,</span>
+            <span class="author-block"><sup>2</sup>The University of Hong Kong,</span>
+            <span class="author-block"><sup>3</sup>Microsoft Corporation</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.11451"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/maszhongming/ParaKnowTransfer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://drive.google.com/file/d/1SuwRgV1LtEud8dfjftnw-zxBMgzSCwIT/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>ComposLoRA</span>
+                </a>
+              </span> -->
+              <!-- Twitter Link. -->
+              <span class="link-block">
+                <a href="https://twitter.com/MingZhong_/status/1714733002352173533"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Twitter</span></a>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="content has-text-justified">
+          Large Language Models (LLMs) inherently encode extensive knowledge within their parameters. Previous studies have demonstrated that this parametric knowledge can be <strong>detected</strong> (e.g., via cloze tests) or <strong>modified</strong> (e.g., through knowledge editing).
+          <br><br><strong>Research Question</strong>: Taking this further, can task-specific parametric knowledge be <strong>transferred</strong> across LLMs of different scales?
+          <br><br>Absolutely! <i>Our paper provides empirical evidence supporting the transferability of parametric knowledge.</i>
+        </div>  
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Different Paradigms of Knowledge Transfer</h2>
+        <p align="center">
+        <img src="./static/images/paradigm.png" class="center">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>Offline Distillation:</strong>
+              <ul>
+              <li>Utilizing soft logits from the fine-tuned teacher model to guide the training of the student model.</li> 
+              </ul>
+            </li>
+            <li><strong>Online Distillation:</strong>
+              <ul>
+              <li>Generating a distilled dataset that encapsulates the knowledge of the teacher model to fine-tune the student model.</li>
+              </ul>
+            </li>
+            <li><strong>Parametric Knowledege Transfer:</strong>
+              <ul>
+              <li>Extracting knowledge-specific parameters from the vanilla teacher model and injecting them into the student model.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Parametric Knowledege Transfer</h2>
+        <p align="center">
+        <img src="./static/images/method.png" class="center" width="50%">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>Knowledge Extraction from Teacher Model:</strong>
+              <ul>
+              <li>Calculating sensitivity score for each parameter using seed samples.</li>
+              <li>Given that models of varying scales often differ in both the number of layers and their dimensions, we adopt a method of layer selection and dimensionality reduction based on sensitivity scores.</li> 
+              </ul>
+            </li>
+            <li><strong>Knowledge Injection with LoRA:</strong>
+              <ul>
+              <li>Using LoRA module as a bridge for knowledge transfer.</li>
+              <li>Leveraging parameters extracted from the teacher model to initialize the LoRA module of the student model.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Experimental Results</h2>
+        <p align="center">
+        <img src="./static/images/results.png" class="center" width="100%">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+            <li>Student models augmented with parametric knowledge from their respective teacher models exhibit substantial improvements.</li>
+          </ul>
+        </div>
+        <p align="center">
+          <img src="./static/images/transfer.png" class="center" width="50%">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+            <li>When parameters are extracted from a concrete task, the performance is most significantly amplified for that same task.</li>
+            <li>This highlights the capability of our sensitivity-driven techniques to efficiently target certain types of knowledge, rather than just extracting generalized knowledge.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Analysis</h2>
+        <p align="center">
+        <img src="./static/images/analysis.png" class="center" width="70%">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>Layer Selection Methods:</strong>
+              <ul>
+              <li>while the layer selection modestly affects student performance, our sensitivity-driven approach excels over the other strategies.</li> 
+              </ul>
+            </li>
+            <li><strong>Origin of Extracted Parameters:</strong>
+              <ul>
+              <li>FFN showcases advanced transfer capabilities, intimating that it houses a significant share of the teacher’s knowledge.</li>
+              <li>Optimal results are obtained when transferring knowledge from all available modules.</li>
+              </ul>
+            </li>
+            <li><strong>Structure of Extracted Parameters:</strong>
+              <ul>
+              <li>Maintaining the teacher model’s parameter structure significantly benefits student model performance.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhong2023seeking,
+      title={Seeking Neural Nuggets: Knowledge Transfer in Large Language Models from a Parametric Perspective},
+      author={Zhong, Ming and An, Chenxin and Chen, Weizhu and Han, Jiawei and He, Pengcheng},
+      journal={arXiv preprint arXiv:2310.11451},
+      year={2023}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content">
+          <p>
+            The source code of this webpage is based on the <a href="https://github.com/nerfies/nerfies.github.io/">
+              Nerfies</a> project webpage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
